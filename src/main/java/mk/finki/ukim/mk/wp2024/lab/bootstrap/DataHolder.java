@@ -35,7 +35,7 @@ public class DataHolder {
         albums.add(new Album("Heavy metal", "Metallica (Black album)", "1991"));
         albums.add(new Album("Rock","Nevermind","1991"));
         albums.add(new Album("Power Metal","The War to End All Wars","2022"));
-        albums.add(new Album("Let it Be","Pop-Rock","1970"));
+        albums.add(new Album("Pop-Rock","Let it Be","1970"));
 
         songs.add(new Song("Stormtroopers","Power metal",2022, "001", albums.get(3)));
         songs.add(new Song("Let it be","Pop-Rock",1970, "002", albums.get(4)));

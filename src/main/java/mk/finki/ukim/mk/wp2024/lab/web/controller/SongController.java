@@ -74,4 +74,16 @@ public class SongController
         this.songService.delete(id);
         return "redirect:/songs";
     }
+    @GetMapping("/details/{id}")
+    public String getSongDetails(@PathVariable String id, Model model)
+    {
+
+        Song song = songService.findByTrackId(id);
+        model.addAttribute("name",song.getTitle());
+        model.addAttribute("genre",song.getGenre());
+        model.addAttribute("year",song.getReleaseYear());
+        model.addAttribute("artists", song.getPerformers());
+
+        return "songDetails";
+    }
 }

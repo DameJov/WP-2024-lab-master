@@ -43,6 +43,14 @@
                 </button>
             </form>
         </th:block>
+        <th:block>
+            <form th:action="@{'/artists/{trackId}' (trackId=${song.getTrackId()})}" th:method="GET">
+                <button type="submit"
+                        class="btn btn-sm btn-danger delete-product">
+                    <i>Submit</i>
+                </button>
+            </form>
+        </th:block>
     </div>
     <br>
     <div>
@@ -54,14 +62,9 @@
                 </button>
             </form>
         </th:block>
-        <th:block>
-            <form th:action="@{'/songs/add'}" th:method="POST">
-                <button type="submit"
-                        class="btn btn-sm btn-danger delete-product">
-                    <i>Submit</i>
-                </button>
-            </form>
-        </th:block>
+    </div>
+    <div>
+
     </div>
 
 </main>

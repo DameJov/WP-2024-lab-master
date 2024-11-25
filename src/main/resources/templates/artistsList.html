@@ -34,17 +34,22 @@
 <section>
     <h2>Select artist:</h2>
     <!-- Make changes to this code to dynamically display radio buttons for each artist as in the example -->
-    <form action="/artist" method="post">
-        <input type="hidden" th:value="${trackId}" name="track">
-        <div th:each="artist : ${artists}">
-            <input type="radio" name="artist" th:value="${artist.getId}">
+        <input type="hidden" th:value="${trackId}" name="trackId">
+    <th:block>
+        <form th:action="@{'/artists/add-artist/{id}' (id=${trackId})}" th:method="POST">
+            <div th:each="artist : ${artists}">
+                <input type="radio" name="artistId" th:value="${artist.getId}">
                 <span>
                     Name: <span th:text="${artist.getFirstName()}"></span> <span th:text="${artist.getLastName()}"></span>,
                     Bio: <span th:text="${artist.getBio()}"></span>
                 </span>
-        </div>
-        <input type='submit' value='Add artist'>
-    </form>
+            </div>
+            <button type="submit"
+                    class="btn btn-sm btn-danger delete-product">
+                <i>Add Artist</i>
+            </button>
+        </form>
+    </th:block>
     <br/>
 </section>
 <aside>
