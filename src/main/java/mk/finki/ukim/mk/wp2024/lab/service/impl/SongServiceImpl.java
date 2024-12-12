@@ -5,6 +5,7 @@ import mk.finki.ukim.mk.wp2024.lab.model.Artist;
 import mk.finki.ukim.mk.wp2024.lab.model.Song;
 import mk.finki.ukim.mk.wp2024.lab.repository.AlbumRepository;
 import mk.finki.ukim.mk.wp2024.lab.repository.SongRepository;
+import mk.finki.ukim.mk.wp2024.lab.repository.jpa.JpaSongRepository;
 import mk.finki.ukim.mk.wp2024.lab.service.SongService;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +15,10 @@ import java.util.Optional;
 @Service
 public class SongServiceImpl implements SongService
 {
-    private final SongRepository songRepository;
+    private final JpaSongRepository songRepository;
     private final AlbumRepository albumRepository;
 
-    public SongServiceImpl(SongRepository songRepository, AlbumRepository albumRepository) {
+    public SongServiceImpl(JpaSongRepository songRepository, AlbumRepository albumRepository) {
         this.songRepository = songRepository;
         this.albumRepository = albumRepository;
     }
