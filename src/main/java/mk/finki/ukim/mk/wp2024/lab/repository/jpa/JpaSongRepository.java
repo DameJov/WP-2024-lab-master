@@ -16,5 +16,7 @@ public interface JpaSongRepository extends JpaRepository<Song, Long>
     @Query("SELECT s FROM Song s WHERE s.trackId = :trackId")
     Optional<Song> findByTrackId(@Param("trackId") String trackId);
 
-    List<Song> findAllByAlbum_Id(Long albumId);
+    @Query("SELECT s FROM Song s WHERE s.album.id = :albumId")
+    List<Song> findAllByAlbum_Id(@Param("albumId") Long albumId);
+
 }
