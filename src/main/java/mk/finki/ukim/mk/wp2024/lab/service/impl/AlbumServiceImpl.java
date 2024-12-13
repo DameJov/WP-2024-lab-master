@@ -24,6 +24,7 @@ public class AlbumServiceImpl implements AlbumService
 
     @Override
     public Album findById(Long id) {
-        return albumRepository.findById(id).orElse(new Album());
+        return albumRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Album with id " + id + " not found"));
     }
 }

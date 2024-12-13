@@ -13,6 +13,7 @@ public class Song {
     private String title;
     private String genre;
     private int releaseYear;
+    @ManyToMany
     private List<Artist> performers;
 
     @Id
