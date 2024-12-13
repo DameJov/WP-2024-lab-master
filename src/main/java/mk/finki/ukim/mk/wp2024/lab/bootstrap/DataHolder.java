@@ -6,6 +6,7 @@ import mk.finki.ukim.mk.wp2024.lab.model.Album;
 import mk.finki.ukim.mk.wp2024.lab.model.Artist;
 import mk.finki.ukim.mk.wp2024.lab.model.Song;
 import mk.finki.ukim.mk.wp2024.lab.repository.jpa.JpaAlbumRepository;
+import mk.finki.ukim.mk.wp2024.lab.repository.jpa.JpaArtistRepository;
 import mk.finki.ukim.mk.wp2024.lab.repository.jpa.JpaSongRepository;
 import org.springframework.stereotype.Component;
 
@@ -20,10 +21,12 @@ public class DataHolder {
 
     private final JpaAlbumRepository jpaAlbumRepository;
     private final JpaSongRepository jpaSongRepository;
+    private final JpaArtistRepository jpaArtistRepository;
 
-    public DataHolder(JpaAlbumRepository jpaAlbumRepository, JpaSongRepository jpaSongRepository) {
+    public DataHolder(JpaAlbumRepository jpaAlbumRepository, JpaSongRepository jpaSongRepository, JpaArtistRepository jpaArtistRepository) {
         this.jpaAlbumRepository = jpaAlbumRepository;
         this.jpaSongRepository = jpaSongRepository;
+        this.jpaArtistRepository = jpaArtistRepository;
     }
 
     @PostConstruct
@@ -40,6 +43,7 @@ public class DataHolder {
         artists.add(new Artist("Lars","Ulrich","Metallica drummer"));
         artists.add(new Artist("James","Hetfield","Metallica lead vocalist and guitarist"));
         artists.add(new Artist("Joakim","Broden","Sabaton lead vocalist and guitarist"));
+        jpaArtistRepository.saveAll(artists);
 
         albums.add(new Album("Heavy metal","Master of Puppets","1986"));
         albums.add(new Album("Heavy metal", "Metallica (Black album)", "1991"));
